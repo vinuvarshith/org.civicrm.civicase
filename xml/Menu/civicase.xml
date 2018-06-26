@@ -17,4 +17,10 @@
     <title>ContactActivityTab</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/bulk-activity</path>
+    <page_callback>CRM_Civicase_Page_BulkActivity</page_callback>
+    <title>BulkActivity</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
 </menu>
