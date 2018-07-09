@@ -296,13 +296,14 @@ function civicase_civicrm_buildForm($formName, &$form) {
       if ($status == 'Draft' && ($form->_action & CRM_Core_Action::VIEW)) {
         if (in_array($activityType, $specialTypes)) {
           $atype = $activityType == 'Email' ? 'email' : 'pdf';
-          $caseId = civicrm_api3('Activity', 'getsingle', array('id' => $id, 'return' => 'case_id'));
+          $caseId = civicrm_api3('Activity', 'getsingle', array('id' => $id, 'return' => array('case_id', 'contact_id')));
           $composeUrl = CRM_Utils_System::url("civicrm/activity/$atype/add", array(
             'action' => 'add',
             'reset' => 1,
             'caseId' => $caseId['case_id'][0],
             'context' => 'standalone',
             'draft_id' => $id,
+            'cid' => $caseId['source_contact_id'],
           ));
           $buttonMarkup = '<a class="button" href="' . $composeUrl . '"><i class="crm-i fa-pencil-square-o"></i> &nbsp;' . ts('Continue Editing') . '</a>';
           $form->assign('activityTypeDescription', $buttonMarkup);
