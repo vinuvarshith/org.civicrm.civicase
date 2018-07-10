@@ -300,7 +300,7 @@ function civicase_civicrm_buildForm($formName, &$form) {
           $composeUrl = CRM_Utils_System::url("civicrm/activity/$atype/add", array(
             'action' => 'add',
             'reset' => 1,
-            'caseId' => $caseId['case_id'][0],
+            'caseid' => $caseId['case_id'][0],
             'context' => 'standalone',
             'draft_id' => $id,
             'cid' => $caseId['source_contact_id'],
